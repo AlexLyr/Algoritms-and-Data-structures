@@ -28,6 +28,7 @@ public class TestLinkedList {
         elementShouldBeInserted();
         elementShouldBeInsertedInEmptyList();
         elementShouldBeInsertedInStart();
+        shoudSummarizeListElements();
     }
 
     public void shouldRemoveValueFromFullLinkedList() {
@@ -257,5 +258,16 @@ public class TestLinkedList {
             System.err.println("elementShouldBeInsertedInStart was not passed");
         } else
             System.out.println("elementShouldBeInsertedInStart was passed");
+    }
+
+    public void shoudSummarizeListElements() {
+        LinkedList list = TestData.getFullList();
+        LinkedList list2 = TestData.getFullList();
+        LinkedList sumarizeLists = ListSummarizer.sumarizeElements(list, list2);
+        if (sumarizeLists.head.value == 2 && sumarizeLists.tail.value == 12) {
+            System.out.println("Summarize lists test passed");
+        } else {
+            System.err.println("Summarize lists test not passed");
+        }
     }
 }

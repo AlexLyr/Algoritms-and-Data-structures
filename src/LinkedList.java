@@ -93,15 +93,14 @@ public class LinkedList {
     }
 
     public void insertAfter(Node _nodeAfter, Node _nodeToInsert) {
-        if(this.head == null) {
+        if (this.head == null) {
             addInTail(_nodeToInsert);
-        }
-        else if (_nodeAfter == null) {
+        } else if (_nodeAfter == null) {
             _nodeToInsert.next = this.head;
             this.head = _nodeToInsert;
         } else {
             Node nodeThatWasNext = _nodeAfter.next;
-            if(nodeThatWasNext == null) {
+            if (nodeThatWasNext == null) {
                 this.tail = _nodeToInsert;
             }
             _nodeAfter.next = _nodeToInsert;
@@ -131,5 +130,25 @@ class Node {
     public Node(int _value) {
         value = _value;
         next = null;
+    }
+}
+
+class ListSummarizer {
+
+    public static LinkedList sumarizeElements(LinkedList sourceList, LinkedList listToSummarize) {
+        LinkedList result = new LinkedList();
+        if (sourceList.count() != listToSummarize.count()) {
+            throw new IllegalArgumentException("Lists must have the same length");
+        } else {
+            Node next;
+            Node nextToSummarize = listToSummarize.head;
+            for (Node current = sourceList.head; current != null; current = next) {
+                int value = current.value + nextToSummarize.value;
+                next = current.next;
+                nextToSummarize = nextToSummarize.next;
+                result.addInTail(new Node(value));
+            }
+        }
+        return result;
     }
 }
