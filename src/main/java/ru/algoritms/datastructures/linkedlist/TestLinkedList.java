@@ -1,4 +1,4 @@
-package ru.algoritms.datastructures;
+package ru.algoritms.datastructures.linkedlist;
 
 import java.util.ArrayList;
 
