@@ -1,3 +1,5 @@
+package ru.algoritms.datastructures;
+
 import java.util.*;
 
 public class LinkedList {

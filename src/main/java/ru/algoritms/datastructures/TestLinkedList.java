@@ -1,3 +1,5 @@
+package ru.algoritms.datastructures;
+
 import java.util.ArrayList;
 
 public class TestLinkedList {

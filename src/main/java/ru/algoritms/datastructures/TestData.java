@@ -1,3 +1,4 @@
+package ru.algoritms.datastructures;
 
 public class TestData {
 
