@@ -1,5 +1,8 @@
 package ru.algoritms.datastructures.dynamicarray;
 
+import java.lang.reflect.Array;
+import java.util.Arrays;
+
 public class DynArray<T> {
     public T[] array;
     public int count;
@@ -13,15 +16,19 @@ public class DynArray<T> {
     }
 
     public void makeArray(int new_capacity) {
-        if (new_capacity < 16) {
-            new_capacity = 16;
+        if (new_capacity <= count) {
+            return;
+        } else if (new_capacity < 16) {
+            capacity = 16;
+        } else {
+            capacity = new_capacity;
         }
-        T[] temp = (T[]) new Object[new_capacity];
-        for (int i = 0; i < count; i++) {
-            temp[i] = array[i];
+
+        if (array == null) {
+            array = (T[]) Array.newInstance(clazz, capacity);
+        } else {
+            array = Arrays.copyOf(array, capacity);
         }
-        capacity = new_capacity;
-        array = temp;
     }
 
     public T getItem(int index) {
@@ -32,7 +39,7 @@ public class DynArray<T> {
     }
 
     public void append(T itm) {
-        if (count == capacity) {
+        if (count >= capacity) {
             makeArray(capacity * 2);
         }
         array[count] = itm;
@@ -43,12 +50,10 @@ public class DynArray<T> {
         if (index > count || index < 0) {
             throw new ArrayIndexOutOfBoundsException(String.format("Index must be more than 0 or less than %s", count));
         }
-        if (count + 1 >= capacity) {
+        if (count == capacity) {
             makeArray(capacity * 2);
         }
-        for (int i = count - 1; i >= index; i--) {
-            array[i + 1] = array[i];
-        }
+        System.arraycopy(array, index, array, index + 1, count - index);
         array[index] = itm;
         count++;
     }
@@ -57,8 +62,9 @@ public class DynArray<T> {
         if (index >= count || index < 0) {
             throw new ArrayIndexOutOfBoundsException(String.format("Index must be more than 0 or less than %s", count));
         }
-        for (int i = index; i <= count - 1; i++) {
-            array[i] = array[i + 1];
+        int moveElementsCount = count - index - 1;
+        if (moveElementsCount > 0) {
+            System.arraycopy(array, index + 1, array, index, moveElementsCount);
         }
         count--;
         array[count] = null;
