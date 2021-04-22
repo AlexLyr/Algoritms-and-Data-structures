@@ -4,6 +4,8 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
+import java.util.function.Predicate;
+
 public class TestStack {
     Stack<Integer> integerStack;
 
@@ -57,5 +59,28 @@ public class TestStack {
             Integer pop = list.pop();
             Assert.assertEquals(expected[len - 1 - i], pop);
         }
+    }
+
+    @Test
+    public void testParenthesisCounter() {
+        String testString1 = "(())";
+        String testString2 = "(()()(())";
+        String testString3 = "())(\" , \"))((";
+        String testString4 = "((())";
+        String testString5 = ")";
+        String testString6 = "(";
+        String testString7 = "))";
+        String testString8 = ")(";
+        String testString9 = "((";
+        Predicate<String> predicate = ParenthesisCounter::isParentesisBalanced;
+        Assert.assertTrue(predicate.test(testString1));
+        Assert.assertFalse(predicate.test(testString2));
+        Assert.assertFalse(predicate.test(testString3));
+        Assert.assertFalse(predicate.test(testString4));
+        Assert.assertFalse(predicate.test(testString5));
+        Assert.assertFalse(predicate.test(testString6));
+        Assert.assertFalse(predicate.test(testString7));
+        Assert.assertFalse(predicate.test(testString8));
+        Assert.assertFalse(predicate.test(testString9));
     }
 }
