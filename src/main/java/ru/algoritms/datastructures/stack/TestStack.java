@@ -83,4 +83,9 @@ public class TestStack {
         Assert.assertFalse(predicate.test(testString8));
         Assert.assertFalse(predicate.test(testString9));
     }
+
+    @Test
+    public void testStatementCounter() {
+        System.out.println(ParenthesisCounter.calculatePostfixStatment("1 2 + 2 -"));
+    }
 }
