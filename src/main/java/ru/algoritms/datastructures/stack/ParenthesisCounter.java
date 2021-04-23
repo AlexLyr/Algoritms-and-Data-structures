@@ -4,16 +4,16 @@ public class ParenthesisCounter {
 
     public static boolean isParentesisBalanced(String parenthesis) {
         Stack<Character> stack = new Stack<>();
-        boolean isBalanced = true;
         for (char symbol : parenthesis.toCharArray()) {
             if (symbol == '(') {
                 stack.push(symbol);
-            } else if (symbol == ')') {
-                Character openParenthesis = stack.pop();
-                isBalanced = openParenthesis != null;
+            } else if (symbol == ')' && stack.size() != 0) {
+                stack.pop();
+            } else {
+                return false;
             }
         }
-        return isBalanced && stack.size() == 0;
+        return stack.size() == 0;
     }
 
     public static double calculatePostfixStatment(String statement) {
