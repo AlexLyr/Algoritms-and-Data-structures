@@ -23,28 +23,23 @@ public class ParenthesisCounter {
                 double i = Double.parseDouble(element);
                 stack.push(i);
             } catch (Exception e) {
+                Double secondElem = stack.pop();
+                Double firstElem = stack.pop();
+                double result;
                 switch (element) {
                     case "+":
-                        Double secondElem = stack.pop();
-                        Double firstElem = stack.pop();
-                        double result = firstElem + secondElem;
+                        result = firstElem + secondElem;
                         stack.push(result);
                         break;
                     case "*":
-                        secondElem = stack.pop();
-                        firstElem = stack.pop();
                         result = secondElem * firstElem;
                         stack.push(result);
                         break;
                     case "/":
-                        secondElem = stack.pop();
-                        firstElem = stack.pop();
                         result = firstElem / secondElem;
                         stack.push(result);
                         break;
                     case "-":
-                        secondElem = stack.pop();
-                        firstElem = stack.pop();
                         result = firstElem - secondElem;
                         stack.push(result);
                         break;
@@ -53,7 +48,7 @@ public class ParenthesisCounter {
                 }
             }
         }
-        if(stack.size() != 1) {
+        if (stack.size() != 1) {
             throw new RuntimeException("Not valid statement!");
         }
         return stack.pop();
