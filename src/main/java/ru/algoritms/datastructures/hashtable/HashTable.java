@@ -1,8 +1,11 @@
 package ru.algoritms.datastructures.hashtable;
 
 public class HashTable {
+
     public int size;
+
     public int step;
+
     public String[] slots;
 
     public HashTable(int sz, int stp) {
@@ -13,51 +16,43 @@ public class HashTable {
     }
 
     public int hashFun(String value) {
-        return value.hashCode() % slots.length;
+        // всегда возвращает корректный индекс слота
+        if (value.isEmpty()) {
+            return 0;
+        }
+        int hash = 1;
+        for (char c : value.toCharArray()) {
+            hash = hash * 31 + c;
+        }
+        return Math.abs(hash) % size;
     }
 
     public int seekSlot(String value) {
-        int firstIndex = hashFun(value);
-        int limiter = firstIndex;
-        while (slots[firstIndex] != null) {
-            firstIndex = firstIndex + step;
-            if (firstIndex > slots.length - 1) {
-                firstIndex = firstIndex - slots.length + 1;
-            }
-            if(firstIndex == limiter) {
-                return -1;
-            }
+        // находит индекс пустого слота для значения, или -1
+        int index = hashFun(value);
+        int distance = 0;
+        for (int laps = 0; laps < step; laps = distance / size) {
+            if (slots[index] == null) return index;
+            index = (index + step) % size;
+            distance += step;
         }
-        return firstIndex;
+        return -1;
     }
 
     public int put(String value) {
         // записываем значение по хэш-функции
+        // возвращается индекс слота или -1
+        // если из-за коллизий элемент не удаётся разместить
         int index = seekSlot(value);
-        if(index != -1) {
-            slots[index] = value;
-        }
+        if (index != -1) slots[index] = value;
         return index;
     }
 
     public int find(String value) {
-        int firstIndex = hashFun(value);
-        int limiter = firstIndex;
-        if (slots[firstIndex] != null) {
-            return firstIndex;
-        } else {
-            while (true) {
-                if (value.equals(slots[firstIndex])) {
-                    return firstIndex;
-                }
-                firstIndex = firstIndex + step;
-                if (firstIndex > slots.length - 1) {
-                    firstIndex = firstIndex - slots.length + 1;
-                }
-                if (firstIndex == limiter) {
-                    return -1;
-                }
-            }
+        // находит индекс слота со значением, или -1
+        for (int i = 0; i < size; i++) {
+            if (slots[i] != null && slots[i].equals(value)) return i;
         }
+        return -1;
     }
 }
