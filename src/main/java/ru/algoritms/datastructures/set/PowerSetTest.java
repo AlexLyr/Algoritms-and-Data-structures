@@ -1,4 +1,4 @@
-package ru.algoritms.set;
+package ru.algoritms.datastructures.set;
 
 import org.junit.Assert;
 import org.junit.Before;

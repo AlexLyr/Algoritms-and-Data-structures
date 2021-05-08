@@ -1,4 +1,4 @@
-package ru.algoritms.set;
+package ru.algoritms.datastructures.set;
 
 import java.util.ArrayList;
 import java.util.LinkedList;
