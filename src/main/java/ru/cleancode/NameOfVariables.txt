@@ -1,0 +1,13 @@
+taskCount - synchronizationTaskCompleted //Количество завершенных задач по синхронизации
+hasAccess - canUserMakePayment //Флаг показывающий может ли пользак совершить платеж
+size - maxSimultaneouslyConcurrentQuestionsToYandexMetrica //Максимальное количество одновременных запросов к Яндекс.Метрики
+permissions - accessibleEndpointsForUser //Доступное АПИ для пользователя
+scope - userSessionScopes //Скоупы для пользователя в рамках сессии
+cacheOfPreviousValues - cacheOfQueriedOperationsByFilterParams //Кэш запрошенных операций по параметрам
+index - indexOfOkvedSubindustrialGroup //Индекс подгруппы направлений деятельности в ОКВЭД
+errors - resultsOfApplicationValidation //Ошибки в форме подачи заявления
+time - creationTimeOfEntity // время создания объекта
+sum - sumOfAllOtherNumbers // сумма всех чисел
+docNumbers - paymentApplicationNumbers // Массив номеров платежных документов
+ids - documentIds //Массив идентификаторов документов
+var1, var2 - personId, documentId //аргументы функции определяющей принадлежность документа юзеру
