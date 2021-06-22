@@ -1,0 +1,24 @@
+6.1:
+size - maxSimultaneouslyConcurrentQuestionsToYandexMetrica //Максимальное количество одновременных запросов к Яндекс.Метрики
+hasAccess - canUserMakePayment //Флаг показывающий может ли пользак совершить платеж
+errors - resultsOfApplicationValidation //Ошибки в форме подачи заявления
+index - indexOfOkvedSubindustrialGroup //Индекс подгруппы направлений деятельности в ОКВЭД
+cacheOfPreviousValues - cacheOfQueriedOperationsByFilterParams //Кэш запрошенных операций по параметрам
+
+6.2:
+cacheOfUsers - Кэш пользователей
+paymentFactory - Фабрика платежей
+userAccountMutex - мьютекс на поле счета пользователя
+bTreePaymentNumbersDescendSorting - B-дерево номеров платежек, отсортированных по убыванию
+
+6.3:
+id, size, name - в классе File
+datasource - в функции getMarketPlacePrimaryDatasource
+id, name, age - класс Person
+
+6.4:
+indexOfOkvedSubindustrialGroup - okvedGroupNumber
+bTreePaymentNumbersDescendSorting - сделал бы функцию getPaymentNumber и назвал бы переменную - descendingBTree
+maxSimultaneouslyConcurrentQuestionsToYandexMetrica - в классе YandexMetricaProperties переменная - maxConcurrentQuestions
+cacheOfQueriedOperationsByFilterParams - operationsCache
+cacheOfSynchronizationTasksForAccounts - В классе AccountSyncScheduler - runningTasksCache
