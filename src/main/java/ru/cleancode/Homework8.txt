@@ -1,0 +1,12 @@
+size - maxConcurrentRequests//Максимальное количество одновременных запросов
+hasAccess - canUserMakeOrder //Флаг показывающий может ли юзер совершить заказ
+errors - validationError //Ошибки валидации
+index - okvedNumber//Индекс подгруппы направлений деятельности в ОКВЭД
+cacheOfPreviousValues - cacheOfQueriedOperations //Кэш запрошенных операций по параметрам
+paymentsProducer - paymentFactory // Фабрика платежей
+userAccountBlocking - userAccountMutex //мьютекс на объекте счета пользователя
+paymentNumbersList - bTreeOfPayments // B-дерево номеров платежек
+connectionProducer - databaseConnectionFactory // фабрика соединений к БД
+cacheOfSynchronizationTasksForAccounts - SyncAccountTaskBlockingQueue // Блокирующая очередь задач на синхронизацию счетов
+numberMeasurement - measurementNumber // Номер замера
+tasksCount - finishedTasksTotal // Общее количество завершенных задач
