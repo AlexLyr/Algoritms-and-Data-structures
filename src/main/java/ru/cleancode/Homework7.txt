@@ -1,0 +1,28 @@
+7.1
+dateExpired - isDateExpired
+notConnect - isNotConnect
+cards - hasUserCards
+accessible - hasAccess
+errors - isResultHasErrors
+
+7.2
+if(connectionEstablished)
+if(blocked)
+while(notConnecting)
+if(checked)
+
+7.3
+i - row, k - column
+i - cellNumber
+i - numberOfCompletedTask
+i - vector
+
+7.4
+
+locked\unlocked
+expired\unexpired
+finished\unfinished
+
+7.5
+temp (while swap a and b) - just use bit operations
+t - copyOfTransactionDto
