@@ -4,3 +4,8 @@ PaymentData - Payment
 CardEntity - Card
 ExcelProcessor - ExcelParser
 CustomerInfo - Customer
+
+3.2
+get - getListOfCards
+fetch - getListOfCardsWithBlockingInfo
+loadData - getListOfCardsWithPersonalInfo
